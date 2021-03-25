@@ -79,3 +79,21 @@ Discover new songs through a discover page, by clicking a song it will take you 
 ## Wireframes
 <img src="WIREFRAME1.png" width=600>
 <img src="WIREFRAME2.png" width=600>
+
+## Schema 
+### Models
+#### Post
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | songID      | String   | unique id for each song (default field) |
+   | userID        | String | Id of user|
+   | passwordID         | String     | Password of user used to login |
+   | playback       | Parse   | Backend for songs |
+   | ArtistName | String   | Name of artists |
+   | imageMV    | File   | image thumbnail of mv|
+   | MusicVideo     | URL | Video of song |
+   | songList     | String | List of songs |
+   | lyrics       | String | Lyrics of song |
+   | likesSong    | Number | number of likes for songs |
+   | currentLocation | Location | Location give access to by the user and used to give back songs |

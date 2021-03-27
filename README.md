@@ -97,3 +97,34 @@ Discover new songs through a discover page, by clicking a song it will take you 
    | lyrics       | String | Lyrics of song |
    | likesSong    | Number | number of likes for songs |
    | currentLocation | Location | Location give access to by the user and used to give back songs |
+### Networking
+#### List of network requests by screen
+   - Home Feed Screen
+      - (Read/GET) Query all songs where user is artist
+         ```swift
+        ParseQuery<Song> query = ParseQuery.getQuery(Song.class);
+        query.include(Song.KEY_USER);
+        query.setLimit(20);
+        query.addDescendingOrder(Post.KEY_CREATED_KEY);
+        query.findInBackground(new FindCallback<Song>() {
+            @Override
+            public void done(List<Song> songs, ParseException e) {
+                if (e != null){
+                    Log.e(TAG, "Issues with getting songs", e);
+                    return;
+                }
+                for (Song song : songs){
+                    Log.i(TAG, "Song:" + song.getLyrics() + ", username" + song.getUser().getUsername());
+                }
+                adapter.clear();
+                allSongs.addAll(songs);
+                swipeLayout.setRefreshing(false);
+                adapter.notifyDataSetChanged();
+         ```
+      - (Create/POST) Create a new like on a song, song will be added to current user's profile page under favorite songs
+      - (Delete) Delete existing like
+   - Create Post Screen
+      - (Create/POST) Create a new song object, based off of current signed in user's location (generate list of popular songs in their area)
+   - Profile Screen
+      - (Read/GET) Query logged in user object
+      - (Update/PUT) Update user profile image, favorite songs, location

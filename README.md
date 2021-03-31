@@ -128,3 +128,12 @@ Discover new songs through a discover page, by clicking a song it will take you 
    - Profile Screen
       - (Read/GET) Query logged in user object
       - (Update/PUT) Update user profile image, favorite songs, location
+
+
+## Current Build Progress Walkthrough
+
+Here's a walkthrough of build progess so far! (Up to date as of 3/30/2021):
+
+<img src='buildprogress1.gif' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).

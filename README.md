@@ -24,20 +24,20 @@ Discover new songs through a discover page, by clicking a song it will take you 
 
 **Required Must-have Stories**
 
-* Login / register page
-* Recycler view list of songs
-* New activity screen with music video at the top and lyrics underneath
-* Uses parse as a backend 
-* Ability to playback songs for the user
-* Location based recommended top songs (New activity screen)
-* Shazam-like audio listener
+* - [X] Login / register page
+* - [ ] Recycler view list of songs
+* - [ ] New activity screen with music video at the top and lyrics underneath
+* - [X] Uses parse as a backend 
+* - [ ] Ability to playback songs for the user
+* - [ ] Location based recommended top songs (New activity screen)
+* - [ ] Shazam-like audio listener
 
 **Optional Nice-to-have Stories**
 
-* Different screens for the charts/genres
-* Implementing a shuffle and repeat features for song
-* Add a credits tab along with the music video and lyrics
-* Discover page can be sorted by genre
+* - [ ] Different screens for the charts/genres
+* - [ ] Implementing a shuffle and repeat features for song
+* - [ ] Add a credits tab along with the music video and lyrics
+* - [ ] Discover page can be sorted by genre
 
 
 ### 2. Screen Archetypes

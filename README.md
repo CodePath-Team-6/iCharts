@@ -134,6 +134,6 @@ Discover new songs through a discover page, by clicking a song it will take you 
 
 Here's a walkthrough of build progess so far! (Up to date as of 3/30/2021):
 
-<img src='buildprogress1.gif' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+<img src='https://github.com/CodePath-Team-6/iCharts/blob/f27e174e562bd019f3623ecd4ff2cc28a8b6b3b7/buildprogess1.gif?raw=true' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

@@ -20,11 +20,11 @@ public class Movie {
     public Movie() {}
 
     public Movie(JSONObject jsonObject) throws JSONException {
-        backdropPath = jsonObject.getString("backdrop_path");//1
-        posterPath = jsonObject.getString("poster_path");//2
-        title = jsonObject.getString("title");//3
-        overview = jsonObject.getString("overview");//4
-        movieId= jsonObject.getInt("id");//5
+        //backdropPath = jsonObject.getString("backdrop_path");//1
+       // posterPath = jsonObject.getString("poster_path");//2
+        title = jsonObject.getString("strAlbum");//3 ok
+        overview = jsonObject.getString("strDescriptionEN");//4 ok
+        movieId= jsonObject.getInt("idAlbum");//5 ok
 
     }
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
@@ -35,13 +35,13 @@ public class Movie {
         return movies;
     }
 
-    public String getBackdropPath() {
-        return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
-    }
+    //public String getBackdropPath() {
+      //  return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
+    //}
 
-    public String getPosterPath() {
-        return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
-    }
+    //public String getPosterPath() {
+      //  return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
+    //}
 
     public String getTitle() {
 

@@ -27,9 +27,9 @@ import okhttp3.Headers;
 
 public class MediaPlayer extends YouTubeBaseActivity {
 
-    private static final String YOUTUBE_API_KEY = "AIzaSyCC2FnpUjqDKvhAM01GhvsGAPB29FSjMzA";
+    private static final String YOUTUBE_API_KEY = "45612d819cmsh3dbf06d01dbd2fcp156bebjsn4e67c4ceb14e";
 
-    public  static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public  static final String VIDEOS_URL = "https://theaudiodb.p.rapidapi.com/searchtrack.php?s=coldplay&t=yellow";
 
     TextView tvTitle;
     TextView tvOverview;

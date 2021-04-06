@@ -24,20 +24,20 @@ Discover new songs through a discover page, by clicking a song it will take you 
 
 **Required Must-have Stories**
 
-* Login / register page
-* Recycler view list of songs
-* New activity screen with music video at the top and lyrics underneath
-* Uses parse as a backend 
-* Ability to playback songs for the user
-* Location based recommended top songs (New activity screen)
-* Shazam-like audio listener
+* - [X] Login / register page
+* - [ ] Recycler view list of songs
+* - [ ] New activity screen with music video at the top and lyrics underneath
+* - [X] Uses parse as a backend 
+* - [ ] Ability to playback songs for the user
+* - [ ] Location based recommended top songs (New activity screen)
+* - [ ] Shazam-like audio listener
 
 **Optional Nice-to-have Stories**
 
-* Different screens for the charts/genres
-* Implementing a shuffle and repeat features for song
-* Add a credits tab along with the music video and lyrics
-* Discover page can be sorted by genre
+* - [ ] Different screens for the charts/genres
+* - [ ] Implementing a shuffle and repeat features for song
+* - [ ] Add a credits tab along with the music video and lyrics
+* - [ ] Discover page can be sorted by genre
 
 
 ### 2. Screen Archetypes
@@ -128,3 +128,12 @@ Discover new songs through a discover page, by clicking a song it will take you 
    - Profile Screen
       - (Read/GET) Query logged in user object
       - (Update/PUT) Update user profile image, favorite songs, location
+
+
+## Current Build Progress Walkthrough
+
+Here's a walkthrough of build progess so far! (Up to date as of 3/30/2021):
+
+<img src='https://github.com/CodePath-Team-6/iCharts/blob/f27e174e562bd019f3623ecd4ff2cc28a8b6b3b7/buildprogess1.gif?raw=true' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).

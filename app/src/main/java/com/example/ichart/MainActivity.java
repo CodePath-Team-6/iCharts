@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final FragmentManager fragmentManager = getSupportFragmentManager();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_songlist);
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
@@ -35,16 +35,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_location:
                         //TODO: add locationFragment()
                         Toast.makeText(MainActivity.this, "Go to Location Page", Toast.LENGTH_SHORT).show();
-                        fragment =
+                        fragment = new SonglistFragment();
                         break;
                     case R.id.action_songList:
-                        fragment = new SonglistFragment(MainActivity.this);
+                        fragment = new SonglistFragment();
                         break;
                     case R.id.action_profile:
                     default:
                         //TODO: add ProfileFragment();
                         Toast.makeText(MainActivity.this, "Go to Profile Page", Toast.LENGTH_SHORT).show();
-                        fragment = new SonglistFragment(getContext(), allSongs);
+                        fragment = new SonglistFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();

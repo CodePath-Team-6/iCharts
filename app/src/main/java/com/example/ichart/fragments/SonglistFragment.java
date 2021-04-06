@@ -1,6 +1,5 @@
 package com.example.ichart.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.ichart.R;
-import com.example.ichart.Song;
 import com.example.ichart.SongsAdapter;
+import com.example.ichart.models.Song;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,29 +29,40 @@ import okhttp3.Headers;
 
 public class SonglistFragment extends Fragment {
 
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    public static final String TAG = "MainActivity";
+    public static final String API_URL = "theaudiodb.com/api/v1/json/1/mostloved.php?format=track";
+    public static final String TAG = "SonglistFragment";
 
     List<Song> songs;
 
+    public SonglistFragment(){
+        //Required empty public constructor
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_songlist, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_songlist);
-        RecyclerView rvMovies = findViewById(R.id.rvMovies);
-        movies = new ArrayList<>();
+        RecyclerView rvSonglist = view.findViewById(R.id.rvSonglist);
+        songs = new ArrayList<>();
 
         //Create the adapter
-        MovieAdapter movieAdapter = new MovieAdapter(this,movies);
+        SongsAdapter songsAdapter = new SongsAdapter(getContext(), songs);
 
         // set the adapter on the recycler view
-        rvMovies.setAdapter(movieAdapter);
+        rvSonglist.setAdapter(songsAdapter);
 
         //set a layout manager on the recycler view
-        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+        rvSonglist.setLayoutManager(new LinearLayoutManager(getContext()));
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+
+        client.get(API_URL, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
                 Log.d(TAG,"onSuccess");
@@ -60,9 +70,9 @@ public class SonglistFragment extends Fragment {
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG,"Results:" + results.toString());
-                    movies.addAll(Movie.fromJsonArray(results));
-                    movieAdapter.notifyDataSetChanged();
-                    Log.i(TAG,"Movies:" + movies.size());
+                    songs.addAll(Song.fromJsonArray(results));
+                    songsAdapter.notifyDataSetChanged();
+                    Log.i(TAG,"Movies:" + songs.size());
                 }catch (JSONException e) {
                     Log.e(TAG, "Hit Json Exception", e);
                 }

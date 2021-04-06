@@ -26,7 +26,7 @@ Discover new songs through a discover page, by clicking a song it will take you 
 
 * - [X] Login / register page
 * - [ ] Recycler view list of songs
-* - [ ] New activity screen with music video at the top and lyrics underneath
+* - [x] Show the MV(New activity screen with music video at the top and lyrics underneath)
 * - [X] Uses parse as a backend 
 * - [ ] Ability to playback songs for the user
 * - [ ] Location based recommended top songs (New activity screen)
@@ -137,3 +137,14 @@ Here's a walkthrough of build progess so far! (Up to date as of 3/30/2021):
 <img src='https://github.com/CodePath-Team-6/iCharts/blob/f27e174e562bd019f3623ecd4ff2cc28a8b6b3b7/buildprogess1.gif?raw=true' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Current Build Progress Walkthrough sprint2
+Milestone
+
+Here's a walkthrough of build progess so far! (Up to date as of 04/06/2021):
+
+<img src='https://github.com/CodePath-Team-6/iCharts/blob/main/walkthrough%20zihan%201.gif' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+
+For the media player page, because it depends on the the main page, so I only show my code and layout. In addition, we increase the style of the login page. 
+
+

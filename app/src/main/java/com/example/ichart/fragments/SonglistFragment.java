@@ -29,7 +29,7 @@ import okhttp3.Headers;
 
 public class SonglistFragment extends Fragment {
 
-    public static final String API_URL = "theaudiodb.com/api/v1/json/1/mostloved.php?format=track";
+    public static final String API_URL = "https://api.audiomack.com/v1/music/trending";
     public static final String TAG = "SonglistFragment";
 
     List<Song> songs;
@@ -62,6 +62,8 @@ public class SonglistFragment extends Fragment {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
+
+        //The api key are still requesting, so the song list did not show up.
         client.get(API_URL, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {

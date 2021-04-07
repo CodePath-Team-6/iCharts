@@ -1,18 +1,12 @@
 package com.example.ichart;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.icu.text.CaseMap;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.util.Log;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
-import com.example.ichart.models.Movie;
-import com.example.ichart.models.Movie;
+import com.example.ichart.models.Song;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -21,7 +15,6 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.parceler.Parcels;
-import org.w3c.dom.Text;
 
 import okhttp3.Headers;
 
@@ -42,12 +35,12 @@ public class MediaPlayer extends YouTubeBaseActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvOverview = findViewById(R.id.tvOverview);
         youTubePlayerView = findViewById(R.id.player);
-        Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));//1
-        tvTitle.setText(movie.getTitle());
-        tvOverview.setText(movie.getOverview());
+        Song song = Parcels.unwrap(getIntent().getParcelableExtra("movie"));//1
+        tvTitle.setText(song.getSong_track());
+        tvOverview.setText(song.getSong_description());
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(String.format(VIDEOS_URL, movie.getMovieId()), new JsonHttpResponseHandler() {
+        client.get(String.format(VIDEOS_URL, song.getSong_youtube_video_link()), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
                 try {

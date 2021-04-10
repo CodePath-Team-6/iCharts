@@ -25,11 +25,11 @@ Discover new songs through a discover page, by clicking a song it will take you 
 **Required Must-have Stories**
 
 * - [X] Login / register page
-* - [ ] Recycler view list of songs
+* - [X] Recycler view list of songs
 * - [x] Show the MV(New activity screen with music video at the top and lyrics underneath)
 * - [X] Uses parse as a backend 
 * - [ ] Ability to playback songs for the user
-* - [ ] Location based recommended top songs (New activity screen)
+* - [ ] Ability to change user profile by camera
 * - [ ] Shazam-like audio listener
 
 **Optional Nice-to-have Stories**

@@ -64,14 +64,14 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.ViewHolder> 
             super(itemView);
             tvSongname = itemView.findViewById(R.id.tvSongname);
             tvAuthor = itemView.findViewById(R.id.tvAuthor);
-            tvListener = itemView.findViewById(R.id.tvListerner);
+            //tvListener = itemView.findViewById(R.id.tvListerner);
             ivCover = itemView.findViewById(R.id.ivCover);
         }
 
         public void bind(Song song) {
             tvSongname.setText(song.getSong_track());
             tvAuthor.setText(song.getSong_artist());
-            tvListener.setText(song.getSong_totalListener());
+            //tvListener.setText(song.getSong_totalListener());
 
             Glide.with(context).load(song.getSong_track_thumb()).into(ivCover);
         }

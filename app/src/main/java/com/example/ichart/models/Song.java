@@ -12,7 +12,7 @@ public class Song {
 
     int song_id;
     int artist_id;
-    int song_totalListener;
+    //int song_totalListener;
 
     String song_description;
     String song_artist;
@@ -24,12 +24,12 @@ public class Song {
     public Song(JSONObject jsonObject) throws JSONException{
         song_id = jsonObject.getInt("idTrack");
         artist_id = jsonObject.getInt("idArtist");
-        song_totalListener = jsonObject.getInt("intTotalListeners");
+        //song_totalListener = jsonObject.getInt("intTotalListeners");
 
         song_description = jsonObject.getString("strDescription");
         song_artist = jsonObject.getString("strArtist");
         song_track = jsonObject.getString("strTrack");
-        song_genra = jsonObject.getString("strGenra");
+        song_genra = jsonObject.getString("strGenre");
         song_youtube_video_link = jsonObject.getString("strMusicVid");
         song_track_thumb = jsonObject.getString("strTrackThumb");
     }
@@ -50,9 +50,9 @@ public class Song {
         return artist_id;
     }
 
-    public int getSong_totalListener() {
-        return song_totalListener;
-    }
+    //public int getSong_totalListener() {
+        //return song_totalListener;
+    //}
 
     public String getSong_description() {
         return song_description;

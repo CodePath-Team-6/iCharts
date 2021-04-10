@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
+import com.codepath.asynchttpclient.RequestParams;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.ichart.R;
 import com.example.ichart.SongsAdapter;
@@ -29,7 +30,8 @@ import okhttp3.Headers;
 
 public class SonglistFragment extends Fragment {
 
-    public static final String API_URL = "https://api.audiomack.com/v1/music/trending";
+    public static final String API_URL = "https://theaudiodb.com/api/v1/json/523532/mostloved.php?format=track";
+    //api_key 523532
     public static final String TAG = "SonglistFragment";
 
     List<Song> songs;
@@ -64,17 +66,26 @@ public class SonglistFragment extends Fragment {
 
 
         //The api key are still requesting, so the song list did not show up.
-        client.get(API_URL, new JsonHttpResponseHandler() {
+        RequestParams params = new RequestParams();
+        params.put("limit", "5");
+        params.put("page", 0);
+
+        client.get(API_URL, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
                 Log.d(TAG,"onSuccess");
-                JSONObject jsonObject = json.jsonObject;
+                JSONObject songObject = json.jsonObject;
                 try {
-                    JSONArray results = jsonObject.getJSONArray("results");
-                    Log.i(TAG,"Results:" + results.toString());
-                    songs.addAll(Song.fromJsonArray(results));
+                    if (songObject.optString("strTrackThumb") != null && songObject.optString("strMusicVid") != null
+                    && songObject.optString("strDescription") != null && songObject.optString("strArtist") != null
+                    && songObject.optString("strTrack") != null && songObject.optString("strGenre") != null) {
+                        JSONArray results = songObject.getJSONArray("loved");
+                        songs.addAll(Song.fromJsonArray(results));
+                    }
+                    //Log.i(TAG,"Results:" + results.toString());
+
                     songsAdapter.notifyDataSetChanged();
-                    Log.i(TAG,"Movies:" + songs.size());
+                    Log.i(TAG,"Songs:" + songs.size());
                 }catch (JSONException e) {
                     Log.e(TAG, "Hit Json Exception", e);
                 }

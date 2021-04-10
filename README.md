@@ -148,3 +148,12 @@ Here's a walkthrough of build progess so far! (Up to date as of 04/06/2021):
 For the media player page, because it depends on the the main page, so I only show my code and layout. In addition, we increase the style of the login page. 
 
 
+## Current Build Progress Walkthrough sprint2 yc
+Milestone
+
+Here's a walkthrough of build progess so far! (Up to date as of 04/06/2021):
+
+<img src='https://github.com/CodePath-Team-6/iCharts/blob/main/yc_milestone2_0406.gif' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+
+The implementation on mainpage(bottom menu), song list page, and SongsAdapter are finished. However, since the api we used need an api secret key and we cannot get response without the key, the song list is not showing. We have asked for the key and should get response soon. 
+

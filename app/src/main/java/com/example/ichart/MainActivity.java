@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.ichart.fragments.ProfileFragment;
 import com.example.ichart.fragments.SonglistFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         //TODO: add ProfileFragment();
                         Toast.makeText(MainActivity.this, "Go to Profile Page", Toast.LENGTH_SHORT).show();
-                        fragment = new SonglistFragment();
+                        fragment = new ProfileFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();

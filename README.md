@@ -157,3 +157,10 @@ Here's a walkthrough of build progess so far! (Up to date as of 04/06/2021):
 
 The implementation on mainpage(bottom menu), song list page, and SongsAdapter are finished. However, since the api we used need an api secret key and we cannot get response without the key, the song list is not showing. We have asked for the key and should get response soon. 
 
+## Current Build Progress Walkthrough
+
+Here's a walkthrough of build progess so far! (Up to date as of 4/13/2021):
+
+<img src='https://github.com/CodePath-Team-6/iCharts/blob/main/travis_buildprogress.gif?raw=true' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+
+Song list API is now working, added a profile page which allows users to change their profile picture with their phone camera with a compose fragment

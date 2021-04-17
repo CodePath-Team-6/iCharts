@@ -164,3 +164,13 @@ Here's a walkthrough of build progess so far! (Up to date as of 4/13/2021):
 <img src='https://github.com/CodePath-Team-6/iCharts/blob/main/travis_buildprogress.gif?raw=true' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
 
 Song list API is now working, added a profile page which allows users to change their profile picture with their phone camera with a compose fragment
+
+## Current Build Progress Walkthrough  yc
+Milestone 3
+
+Here's a walkthrough of build progess so far! (Up to date as of 04/06/2021):
+
+<img src='https://github.com/CodePath-Team-6/iCharts/blob/main/yc_milestone3_0416.gif' title='Build Progress Walkthrough' width='' alt='Build Progress Walkthrough' />
+
+The media player is working. User could click the song name in the play list and get into the media player page. Since the API issue and Youtube API issue, some songs did not support to be played on unauthorized apps.  
+

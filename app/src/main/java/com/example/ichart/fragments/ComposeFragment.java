@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,6 +40,7 @@ public class ComposeFragment extends Fragment {
     private Button btnCaptureImage;
     private ImageView ivCurrentProfilePicture;
     private ImageView ivNewProfilePicture;
+    private TextView tvUsername;
     private Button btnSubmit;
     private File photoFile;
     public String photoFileName = "photo.jpg";
@@ -67,6 +69,7 @@ public class ComposeFragment extends Fragment {
         ivCurrentProfilePicture = view.findViewById(R.id.ivCurrentProfilePicture);
         ivNewProfilePicture = view.findViewById(R.id.ivNewProfilePicture);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+        tvUsername = view.findViewById(R.id.tvUsername);
 
 
 
@@ -77,6 +80,8 @@ public class ComposeFragment extends Fragment {
                 launchCamera();
             }
         });
+
+
 
 
 

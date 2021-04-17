@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ComposeFragment">
 
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        tools:text="Group iChart" />
+
     <ImageView
         android:id="@+id/ivCurrentProfilePicture"
         android:layout_width="match_parent"

@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.ichart.fragments.ProfileFragment;
+import com.example.ichart.fragments.ComposeFragment;
 import com.example.ichart.fragments.SonglistFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
-                    case R.id.action_location:
+                    //case R.id.action_location:
                         //TODO: add locationFragment()
-                        Toast.makeText(MainActivity.this, "Go to Location Page", Toast.LENGTH_SHORT).show();
-                        fragment = new SonglistFragment();
-                        break;
+                        //Toast.makeText(MainActivity.this, "Go to Location Page", Toast.LENGTH_SHORT).show();
+                        //fragment = new SonglistFragment();
+                        //break;
                     case R.id.action_songList:
                         fragment = new SonglistFragment();
                         break;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         //TODO: add ProfileFragment();
                         Toast.makeText(MainActivity.this, "Go to Profile Page", Toast.LENGTH_SHORT).show();
-                        fragment = new ProfileFragment();
+                        fragment = new ComposeFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();

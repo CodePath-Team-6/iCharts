@@ -33,18 +33,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
-                    //case R.id.action_location:
-                        //TODO: add locationFragment()
-                        //Toast.makeText(MainActivity.this, "Go to Location Page", Toast.LENGTH_SHORT).show();
-                        //fragment = new SonglistFragment();
-                        //break;
+
                     case R.id.action_songList:
                         fragment = new SonglistFragment();
                         break;
                     case R.id.action_profile:
                     default:
                         //TODO: add ProfileFragment();
-                        Toast.makeText(MainActivity.this, "Go to Profile Page", Toast.LENGTH_SHORT).show();
                         fragment = new ComposeFragment();
                         break;
                 }

@@ -3,12 +3,14 @@ package com.example.ichart;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class ParseApplication extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
+        ParseObject.registerSubclass(Profile.class);
 
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("r5zF4AzROpEayUwu9CtfGwFzUmm5NpmBJATUyOPS")

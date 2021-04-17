@@ -12,11 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Group iChart"
+        android:text="yc1"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24dp"
-        android:textStyle="bold"
-        tools:text="Group iChart" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivCurrentProfilePicture"

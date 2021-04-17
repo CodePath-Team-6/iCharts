@@ -24,12 +24,13 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.ichart.MainActivity;
 import com.example.ichart.Profile;
 import com.example.ichart.R;
-import com.example.ichart.SongsAdapter;
-import com.example.ichart.Profile;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -44,12 +45,14 @@ public class ComposeFragment extends Fragment {
     private Button btnCaptureImage;
     private ImageView ivCurrentProfilePicture;
     private ImageView ivNewProfilePicture;
-    private View tvUsername;
+    private TextView tvUsername;
     private Button btnSubmit;
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
-    private Context context;
+
+
+
 
     public ComposeFragment() {
         // Required empty public constructor
@@ -63,16 +66,6 @@ public class ComposeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_compose, container, false);
     }
 
-    //@Override
-    //public void onCreate(Bundle savedInstanceState) {
-      //  super.onCreate(savedInstanceState);
-        //setContentView(R.layout.fragment_compose);
-        //ivCurrentProfilePicture = view.findViewById(R.id.ivCurrentProfilePicture);
-        //Glide.with(this).load(“https://wx2.sinaimg.cn/mw690/006Zbzlogy1gbw0em4aoij30u00u0hdu.jpg”).into(image);
-      //  Glide.with(context).load(image.getUrl()).into(ivCurrentProfilePicture);
-    //}
-
-
 
 
     // This event is triggered soon after onCreateView().
@@ -85,6 +78,11 @@ public class ComposeFragment extends Fragment {
         ivNewProfilePicture = view.findViewById(R.id.ivNewProfilePicture);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         tvUsername = view.findViewById(R.id.tvUsername);
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Profile");
+
+
+
+
 
 
 
@@ -96,18 +94,6 @@ public class ComposeFragment extends Fragment {
             }
         });
 
-        //ivCurrentProfilePicture.setImageResource(Profile.getImage());
-        //public onCreateView() {
-        ParseFile image = Profile.getImage();
-        Glide.with(context).load(image.getUrl()).into(ivCurrentProfilePicture);
-        //}
-
-
-
-
-
-
-
 
 
 
@@ -116,14 +102,13 @@ public class ComposeFragment extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String username = tvUsername.getText().toString();
                 if (photoFile == null || ivNewProfilePicture.getDrawable() == null ) {
                     Toast.makeText(getContext(), "There is no image!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
-
                 saveProfile(currentUser, photoFile);
+                Glide.with(getContext()).load(photoFile).into(ivCurrentProfilePicture);
             }
         });
 

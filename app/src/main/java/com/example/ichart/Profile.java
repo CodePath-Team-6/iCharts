@@ -1,13 +1,5 @@
 package com.example.ichart;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -25,7 +17,7 @@ public class Profile extends ParseObject {
 
 
 
-    public ParseFile getImage() {
+    public ParseFile getImage(){
         return getParseFile(KEY_IMAGE);
     }
 

@@ -8,6 +8,7 @@ import org.parceler.Parcel;
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Song {
 
     int song_id;
@@ -20,6 +21,9 @@ public class Song {
     String song_genra;
     String song_youtube_video_link;
     String song_track_thumb;
+
+    //empty for parcel library
+    public Song(){}
 
     public Song(JSONObject jsonObject) throws JSONException{
         song_id = jsonObject.getInt("idTrack");

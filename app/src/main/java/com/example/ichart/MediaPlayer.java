@@ -22,7 +22,7 @@ public class MediaPlayer extends YouTubeBaseActivity {
 
     private static final String YOUTUBE_API_KEY = "45612d819cmsh3dbf06d01dbd2fcp156bebjsn4e67c4ceb14e";
 
-    public  static final String VIDEOS_URL = "https://theaudiodb.p.rapidapi.com/searchtrack.php?s=coldplay&t=yellow";
+    public  static final String VIDEOS_URL = "https://theaudiodb.com/api/v1/json/523532/track.php?h=%d";
 
     TextView tvTitle;
     TextView tvOverview;
@@ -35,20 +35,21 @@ public class MediaPlayer extends YouTubeBaseActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvOverview = findViewById(R.id.tvOverview);
         youTubePlayerView = findViewById(R.id.player);
-        Song song = Parcels.unwrap(getIntent().getParcelableExtra("movie"));//1
+        Song song = Parcels.unwrap(getIntent().getParcelableExtra("song"));//1
         tvTitle.setText(song.getSong_track());
         tvOverview.setText(song.getSong_description());
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(String.format(VIDEOS_URL, song.getSong_youtube_video_link()), new JsonHttpResponseHandler() {
+        client.get(String.format(VIDEOS_URL, song.getSong_id()), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
                 try {
-                    JSONArray results = json.jsonObject.getJSONArray("results");
+                    JSONArray results = json.jsonObject.getJSONArray("track");
                     if (results.length()==0){
                         return;
                     }
-                    String youtubeKey = results.getJSONObject(0).getString("key");//2
+                    String youtubeKey = (results.getJSONObject(0).getString("strMusicVid"));//2
+                    youtubeKey = youtubeKey.substring(31);
                     Log.d("DataActivity",youtubeKey);
                     initializeYoutube(youtubeKey);
                 } catch (JSONException e) {

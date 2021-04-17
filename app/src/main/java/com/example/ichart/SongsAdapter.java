@@ -1,11 +1,13 @@
 package com.example.ichart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.ichart.fragments.SonglistFragment;
 import com.example.ichart.models.Song;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -54,6 +58,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        RelativeLayout container;
         TextView tvAuthor;
         TextView tvSongname;
         TextView tvListener;
@@ -66,6 +71,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.ViewHolder> 
             tvAuthor = itemView.findViewById(R.id.tvAuthor);
             //tvListener = itemView.findViewById(R.id.tvListerner);
             ivCover = itemView.findViewById(R.id.ivCover);
+            container = itemView.findViewById(R.id.container);
         }
 
         public void bind(Song song) {
@@ -74,6 +80,17 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.ViewHolder> 
             //tvListener.setText(song.getSong_totalListener());
 
             Glide.with(context).load(song.getSong_track_thumb()).into(ivCover);
+
+            tvSongname.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, MediaPlayer.class);
+
+                    i.putExtra("title", song.getSong_track());
+                    i.putExtra("song", Parcels.wrap(song));
+                    context.startActivity(i);
+                }
+            });
         }
     }
 

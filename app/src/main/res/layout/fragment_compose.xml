@@ -21,7 +21,13 @@
     <ImageView
         android:id="@+id/ivCurrentProfilePicture"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="20dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/ivNewProfilePicture"
+        android:layout_width="match_parent"
+        android:layout_height="221dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -29,12 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Take Picture" />
-
-    <ImageView
-        android:id="@+id/ivNewProfilePicture"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnSubmit"

@@ -41,6 +41,8 @@ import static android.app.Activity.RESULT_OK;
 public class ComposeFragment extends Fragment {
 
     public static final String TAG = "ComposeFragment";
+    public static final String KEY_IMAGE = "image";
+
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     private Button btnCaptureImage;
     private ImageView ivCurrentProfilePicture;
@@ -68,6 +70,8 @@ public class ComposeFragment extends Fragment {
 
 
 
+
+
     // This event is triggered soon after onCreateView().
     // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
@@ -80,25 +84,16 @@ public class ComposeFragment extends Fragment {
         tvUsername = view.findViewById(R.id.tvUsername);
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Profile");
 
-
-
-
-
-
-
-
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launchCamera();
+                //Glide.with(getContext()).load(photoFile).into(ivCurrentProfilePicture);
             }
         });
 
+        Glide.with(getContext()).load(photoFile).into(ivCurrentProfilePicture);
 
-
-
-
-        // queryPosts();
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,8 +102,14 @@ public class ComposeFragment extends Fragment {
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
+                //ParseFile image = ParseObject.getParseFile(photoFile);
+                Glide.with(getContext()).load(ivNewProfilePicture).into(ivCurrentProfilePicture);
+
                 saveProfile(currentUser, photoFile);
-                Glide.with(getContext()).load(photoFile).into(ivCurrentProfilePicture);
+
+
+                //Glide.with(getContext()).load(photoFile).into(ivCurrentProfilePicture);
+                //Glide.with(getContext()).load(image.getUrl()).into(ivCurrentProfilePicture);
             }
         });
 
@@ -179,7 +180,7 @@ public class ComposeFragment extends Fragment {
                     Toast.makeText(getContext(), "Error while saving", Toast.LENGTH_SHORT).show();
                 }
                 Log.i(TAG, "Post save was successful!");
-                ivNewProfilePicture.setImageResource(0);
+                //ivNewProfilePicture.setImageResource(0);
             }
         });
     }
